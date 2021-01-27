@@ -1,0 +1,4 @@
+include ':NetBase_Api'
+include ':MVVMBase'
+include ':app'
+rootProject.name = "MVVMDemo"

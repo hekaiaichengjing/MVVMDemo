@@ -1,0 +1,5 @@
+1.加入MVVM module前需要 先将config.gradle复制到项目根目录下 里面保存项目配置设置 在这里统一设置。
+
+2.使用MVVM模式 需要现在Module的build.gradle中 android{ ... } 配置打开databinding 添加 buildFeatures { dataBinding = true }。
+
+3.
