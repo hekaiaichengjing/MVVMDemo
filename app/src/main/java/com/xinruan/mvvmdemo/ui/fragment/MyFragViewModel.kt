@@ -29,17 +29,7 @@ class MyFragViewModel : MVVMBaseViewModel<MyFragModel, FragmentMeBinding>(),
 
     }
 
-    override fun loadedFail(requestId: Int, throwable: Throwable) {
 
-        println(
-            "-----Fragment----请求失败---------$requestId---------${
-                ExceptionHandler.handleException(
-                    throwable
-                ).code
-            }---${ExceptionHandler.handleException(throwable).message}-----${Thread.currentThread().name}-->->"
-        )
-
-    }
 
     override fun loadedFail(requestId: Int, throwable: Throwable) {
 
