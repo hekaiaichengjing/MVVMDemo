@@ -1,3 +1,4 @@
+include ':MVVMLoadSirBase'
 include ':NetBase_Api'
 include ':MVVMBase'
 include ':app'

@@ -50,6 +50,15 @@ abstract class BaseActivity<DB : ViewDataBinding, VM : MVVMBaseViewModel<*, DB>>
     override fun showLoading() {
     }
 
+    override fun showEmpty() {
+
+
+    }
+
+    override fun showError() {
+
+    }
+
     override fun onRefreshEmpty() {
     }
 

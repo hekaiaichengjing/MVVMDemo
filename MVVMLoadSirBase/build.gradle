@@ -2,15 +2,17 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
 }
+
 android {
     compileSdkVersion project.compileSdkVersion
     buildToolsVersion project.buildToolsVersion
+
     defaultConfig {
         minSdkVersion project.minSdkVersion
         targetSdkVersion project.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
+
     }
 
     buildTypes {
@@ -26,20 +28,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    //打开DataBinding
-    buildFeatures {
-        dataBinding = true
-    }
-
 }
 
 dependencies {
-    api "androidx.appcompat:appcompat:$project.appcompat_version"
-    // viewModel
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$project.viewmodel"
-    api "androidx.fragment:fragment-ktx:$project.fragment"
-    //协程
-//    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$project.coroutines_core"
-//    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$project.coroutines_android"
-    implementation 'com.android.support:multidex:1.0.3'
+
+    api "com.kingja.loadsir:loadsir:$project.loadsir"
+    api project(path: ':MVVMBase')
 }

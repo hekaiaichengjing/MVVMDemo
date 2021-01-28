@@ -13,6 +13,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/MVVMBase" />
+            <option value="$PROJECT_DIR$/MVVMLoadSirBase" />
             <option value="$PROJECT_DIR$/NetBase_Api" />
             <option value="$PROJECT_DIR$/app" />
           </set>

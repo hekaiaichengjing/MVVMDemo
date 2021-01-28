@@ -2,4 +2,4 @@
 
 2.使用MVVM模式 需要现在Module的build.gradle中 android{ ... } 配置打开databinding 添加 buildFeatures { dataBinding = true }。
 
-3.
+3.添加MVVMLoadSirBase集成了LoadSir 注意再Activity下和Fragment的使用方式不一样哦

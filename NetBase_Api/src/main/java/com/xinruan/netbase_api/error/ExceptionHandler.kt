@@ -22,7 +22,7 @@ object ExceptionHandler {
     fun handleException(e: Throwable): ResponeThrowable {
         val ex: ResponeThrowable
         return if (e is HttpException) {
-            val httpException: HttpException = e as HttpException
+            val httpException: HttpException = e
             ex = ResponeThrowable(e, ERROR.HTTP_ERROR)
             when (httpException.code()) {
                 UNAUTHORIZED, FORBIDDEN, NOT_FOUND, REQUEST_TIMEOUT, GATEWAY_TIMEOUT, INTERNAL_SERVER_ERROR, BAD_GATEWAY, SERVICE_UNAVAILABLE -> ex.message =

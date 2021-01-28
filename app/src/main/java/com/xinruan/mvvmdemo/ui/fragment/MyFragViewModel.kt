@@ -26,6 +26,19 @@ class MyFragViewModel : MVVMBaseViewModel<MyFragModel, FragmentMeBinding>(),
 
     override fun loadedSuc(requestId: Int, t: BaseResponse) {
         println("---Fragment-------请求成功---------$requestId--------------${Thread.currentThread().name}-->")
+
+    }
+
+    override fun loadedFail(requestId: Int, throwable: Throwable) {
+
+        println(
+            "-----Fragment----请求失败---------$requestId---------${
+                ExceptionHandler.handleException(
+                    throwable
+                ).code
+            }---${ExceptionHandler.handleException(throwable).message}-----${Thread.currentThread().name}-->->"
+        )
+
     }
 
     override fun loadedFail(requestId: Int, throwable: Throwable) {
@@ -38,4 +51,5 @@ class MyFragViewModel : MVVMBaseViewModel<MyFragModel, FragmentMeBinding>(),
             }---${ExceptionHandler.handleException(throwable).message}-----${Thread.currentThread().name}-->->"
         )
     }
+
 }
