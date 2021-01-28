@@ -27,7 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
         return ViewModelProvider(this).get(MainActivityViewModel::class.java)
     }
 
-    var startTime: Long = 0
+    private var startTime: Long = 0
     override fun doOnCreate() {
         viewModel.getData()
         dataBinding.et.addTextChangedListener(object : TextWatcher {
@@ -48,6 +48,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
         }
     }
 
+    //先后顺序
     private suspend fun test() {
 
         val job1 = withContext(viewModel.viewModelScope.coroutineContext) {

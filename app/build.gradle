@@ -5,7 +5,27 @@ plugins {
 }
 
 android {
+//多渠道打包
+    productFlavors {
+        //百度渠道
+        baidu {
+            //修改包名
+            applicationId "com.xinruan.baidu"
+            //修改app名字,string资源下不能包含"app_name"
+//            resValue "string", "app_name", "测试APK"
+            resValue "string", "app_name", "百度"
+            //修改AndroidManifest.xml部分字段(包含logo)
+//            manifestPlaceholders = [CHANNEL_VALUE: "baidu",app_icon: "@mipmap/logo"]
 
+        }
+        //小米渠道
+        xiaomi {
+            applicationId "com.xinruan.xiaomi"
+            resValue "string", "app_name", "小米"
+            //修改AndroidManifest.xml部分字段(包含logo)
+//            manifestPlaceholders = [CHANNEL_VALUE: "xiaomi",app_icon: "@mipmap/logo"]
+        }
+    }
     compileSdkVersion project.compileSdkVersion
     buildToolsVersion project.buildToolsVersion
 
@@ -15,13 +35,14 @@ android {
         targetSdkVersion project.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
+        flavorDimensions "default"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
                 cppFlags ""
             }
         }
+
     }
 
     buildTypes {
@@ -52,6 +73,7 @@ android {
     kapt {
         generateStubs = true
     }
+
 
 }
 

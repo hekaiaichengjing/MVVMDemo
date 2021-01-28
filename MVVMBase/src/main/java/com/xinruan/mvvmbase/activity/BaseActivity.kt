@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.lifecycleScope
 import com.xinruan.mvvmbase.inter.IBaseView
 import com.xinruan.mvvmbase.vm.MVVMBaseViewModel
 

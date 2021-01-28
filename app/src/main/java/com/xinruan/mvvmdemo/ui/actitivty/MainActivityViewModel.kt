@@ -22,7 +22,7 @@ class MainActivityViewModel : MVVMBaseViewModel<MainActivityModel, ActivityMainB
     }
 
     fun getData() {
-        var job = request(
+        var job = requestLifeCycle(
             1,
             { model.getData() },
             { i: Int, baseRespance: BaseResponse -> loadedSuc(i, baseRespance) },
@@ -41,7 +41,7 @@ class MainActivityViewModel : MVVMBaseViewModel<MainActivityModel, ActivityMainB
                 ExceptionHandler.handleException(
                     throwable
                 ).code
-            }---${ExceptionHandler.handleException(throwable).message}---->"
+            }---${ExceptionHandler.handleException(throwable).message}-----${Thread.currentThread().name}-->->"
         )
 
     }
