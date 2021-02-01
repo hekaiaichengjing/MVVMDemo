@@ -26,10 +26,7 @@ class MyFragViewModel : MVVMBaseViewModel<MyFragModel, FragmentMeBinding>(),
 
     override fun loadedSuc(requestId: Int, t: BaseResponse) {
         println("---Fragment-------请求成功---------$requestId--------------${Thread.currentThread().name}-->")
-
     }
-
-
 
     override fun loadedFail(requestId: Int, throwable: Throwable) {
 

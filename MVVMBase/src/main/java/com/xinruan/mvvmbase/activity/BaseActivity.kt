@@ -31,13 +31,11 @@ abstract class BaseActivity<DB : ViewDataBinding, VM : MVVMBaseViewModel<*, DB>>
 
     private fun initViewModel() {
         viewModel = getRealViewModel()
-        viewModel?.let {
+        this.viewModel?.let {
             it.assignUiListener(this)
             it.assignDBinding(dataBinding)
             if (getDBVariableId() > 0) {
-                if (viewModel != null) {
-                    dataBinding.setVariable(getDBVariableId(), viewModel)
-                }
+                dataBinding.setVariable(getDBVariableId(), viewModel)
             }
         }
 

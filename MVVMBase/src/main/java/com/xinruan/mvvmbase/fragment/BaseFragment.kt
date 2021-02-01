@@ -40,7 +40,7 @@ abstract class BaseFragment<DB : ViewDataBinding, VM : MVVMBaseViewModel<*, DB>>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getRealViewModel()
-        viewModel?.let {
+        viewModel.let {
             it.assignDBinding(dataBinding)
             it.assignUiListener(this)
 

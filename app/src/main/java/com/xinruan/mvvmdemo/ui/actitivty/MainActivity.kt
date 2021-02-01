@@ -1,6 +1,7 @@
 package com.xinruan.mvvmdemo.ui.actitivty
 
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +16,7 @@ import com.xinruan.mvvmloadsirbase.activity.BaseLoadSirActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.NullPointerException
 import java.lang.ref.WeakReference
 
 class MainActivity : BaseLoadSirActivity<ActivityMainBinding, MainActivityViewModel>() {
@@ -40,6 +42,9 @@ class MainActivity : BaseLoadSirActivity<ActivityMainBinding, MainActivityViewMo
 
             override fun afterTextChanged(s: Editable?) {
                 println("=============> ${viewModel.msg2.get()}")
+                if (TextUtils.equals(s, "1")) {
+                    throw NullPointerException("我是故意的")
+                }
             }
 
         })
