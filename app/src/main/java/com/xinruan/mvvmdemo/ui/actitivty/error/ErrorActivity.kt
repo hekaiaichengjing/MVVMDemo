@@ -11,6 +11,10 @@ import com.xinruan.mvvmloadsirbase.activity.BaseLoadSirActivity
 class ErrorActivity :
     BaseLoadSirActivity<ActivityErrorBinding, ErrorActivityViewModel>() {
     var config: CaocConfig? = null
+
+    private val COUNT_DOWN = 90
+    private var nowCount = 0
+
     override fun onRetryBtnClick() {
     }
 
@@ -24,18 +28,22 @@ class ErrorActivity :
             println("-----报错--> $it")
         }
         dataBinding.click = this
+
+        countCheck()
+
     }
 
     override fun getRealViewModel(): ErrorActivityViewModel =
         ViewModelProvider(this).get(ErrorActivityViewModel::class.java)
 
     override fun getDBVariableId(): Int {
-        return 0
+
+
+
+
+        return BR.err_vm
     }
 
-//    fun reOpen() {
-//
-//    }
 
     fun reStartApp() {
         println("-----------------> ${config}")
@@ -43,5 +51,33 @@ class ErrorActivity :
             CustomActivityOnCrash.restartApplication(this, it)
         }
     }
+
+
+    private fun countCheck() {
+
+        if (!isFinishing && dataBinding.root != null) {
+            if (nowCount > COUNT_DOWN) {
+                //触发跳转
+                reStartApp()
+                return
+            }
+
+            var countLeft =
+                String.format(
+                    getString(R.string.error_occurred),
+                    (COUNT_DOWN - nowCount).toString()
+                )
+            viewModel.count_msg.set(countLeft)
+            dataBinding.root.postDelayed({
+                nowCount++
+                countCheck()
+            }, 1000)
+        }
+    }
+
+    override fun doAfterOnCreate() {
+
+    }
+
 }
 

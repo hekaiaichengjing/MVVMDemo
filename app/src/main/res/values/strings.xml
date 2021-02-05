@@ -1,5 +1,8 @@
 <resources>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="error_occurred">不好意思App出错了！\n请重试！</string>
+
+
+    <string name="error_occurred">不好意思App出错了！\%1$s秒后将重启程序！</string>
+
 </resources>

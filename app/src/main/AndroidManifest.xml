@@ -3,6 +3,8 @@
     package="com.xinruan.mvvmdemo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".DemoApplication"
         android:allowBackup="true"
@@ -19,6 +21,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.actitivty.error.ErrorActivity" />
+
+        <activity
+            android:name=".process.MyProcessActivity"
+            android:launchMode="singleTask"
+            android:process="com.xinruan.mvvmdemo.hekai"
+            android:taskAffinity="com.xinruan.hekai" />
+        <activity android:name=".ui.actitivty.download.DownLoadActivity" />
+        <activity android:name=".ui.actitivty.list.ListActivity" />
+
     </application>
 
 </manifest>

@@ -45,4 +45,8 @@ dependencies {
 
     //防崩溃
     api 'cat.ereza:customactivityoncrash:2.3.0'
+
+
+    api 'com.google.android.material:material:1.1.0'
+
 }

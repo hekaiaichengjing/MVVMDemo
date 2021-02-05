@@ -42,15 +42,31 @@
             android:name="com.xinruan.mvvmdemo.ui.fragment.MyFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintDimensionRatio="H,2:1"
             app:layout_constraintTop_toBottomOf="@id/et" />
 
         <Button
+            android:id="@+id/bt"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:onClick="@{()->click.test()}"
             android:text="点击事件"
-            app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintTop_toBottomOf="@id/frag" />
+
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{()->click.toDownLoad()}"
+            android:text="下载样例"
+            app:layout_constraintTop_toBottomOf="@id/bt" />
+
+        <Button
+            android:id="@+id/bt3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{()->click.toList()}"
+            android:text="列表使用样例"
+            app:layout_constraintTop_toBottomOf="@id/bt2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

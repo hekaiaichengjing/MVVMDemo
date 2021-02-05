@@ -2,6 +2,7 @@ package com.xinruan.mvvmbase.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,5 +75,10 @@ abstract class BaseFragment<DB : ViewDataBinding, VM : MVVMBaseViewModel<*, DB>>
     }
 
     override fun onRefreshFailure(msg: String) {
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        Log.e(javaClass.name, "-----setUserVisibleHint-> $isVisibleToUser")
     }
 }

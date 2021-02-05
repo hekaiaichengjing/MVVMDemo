@@ -8,6 +8,11 @@
             name="click"
             type="com.xinruan.mvvmdemo.ui.actitivty.error.ErrorActivity" />
 
+
+        <variable
+            name="err_vm"
+            type="com.xinruan.mvvmdemo.ui.actitivty.error.ErrorActivityViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +37,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/error_occurred"
+
+
+            android:text="@{err_vm.count_msg}"
+
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/errorRestart"

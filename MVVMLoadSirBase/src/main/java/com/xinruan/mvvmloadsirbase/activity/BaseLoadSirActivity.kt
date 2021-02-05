@@ -17,8 +17,14 @@ abstract class BaseLoadSirActivity<DB : ViewDataBinding, VM : MVVMBaseViewModel<
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        doAfterOnCreate()
+    }
+
+    override fun doOnCreate() {
         loadService = LoadSir.getDefault().register(dataBinding.root) { onRetryBtnClick() }
     }
+
+    abstract fun doAfterOnCreate()
 
     //更换LoadSir加载再具体的View上
     fun setLoadSirView(view: View) {
@@ -32,17 +38,26 @@ abstract class BaseLoadSirActivity<DB : ViewDataBinding, VM : MVVMBaseViewModel<
 
     override fun showLoading() {
         super.showLoading()
-        loadService?.showCallback(LoadingCallback::class.java)
+        dataBinding.root.post {
+            loadService?.showCallback(LoadingCallback::class.java)
+        }
+
     }
 
     override fun showEmpty() {
         super.showEmpty()
-        loadService?.showCallback(EmptyCallback::class.java)
+
+        dataBinding.root.post {
+            loadService?.showCallback(EmptyCallback::class.java)
+        }
     }
 
     override fun showError() {
         super.showError()
-        loadService?.showCallback(ErrorCallback::class.java)
+
+        dataBinding.root.post {
+            loadService?.showCallback(ErrorCallback::class.java)
+        }
     }
 
     abstract fun onRetryBtnClick()

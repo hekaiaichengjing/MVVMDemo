@@ -13,7 +13,7 @@ class MyFragViewModel : MVVMBaseViewModel<MyFragModel, FragmentMeBinding>(),
         model = MyFragModel()
     }
 
-    val msg = ObservableField<String>("我是初始化")
+    val msg = ObservableField<String>("我是Fragment里面的TextView")
 
 
     fun getData() {

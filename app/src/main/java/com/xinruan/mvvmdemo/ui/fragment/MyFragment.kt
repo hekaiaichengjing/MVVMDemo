@@ -19,7 +19,7 @@ class MyFragment : BaseLoadSirFragment<FragmentMeBinding, MyFragViewModel>() {
     }
 
     override fun doOnCreate() {
-        viewModel.getData()
+//        viewModel.getData()
         dataBinding.tv.setOnClickListener {
             showLoading()
         }

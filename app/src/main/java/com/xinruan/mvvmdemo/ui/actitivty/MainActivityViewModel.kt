@@ -13,9 +13,9 @@ import kotlinx.coroutines.withContext
 class MainActivityViewModel : MVVMBaseViewModel<MainActivityModel, ActivityMainBinding>(),
     ResultState<BaseResponse> {
     val msg: ObservableField<String> =
-        ObservableField("我是初始化")//ObservableField 属性改变databinding会更新数据到界面
+        ObservableField("我是Demo")//ObservableField 属性改变databinding会更新数据到界面
     val msg2: ObservableField<String> =
-        ObservableField("我是初始化2")//双向绑定在布局中添加 = 号 （ android:text="@={vm.msg2}"）
+        ObservableField("我是双向绑定")//双向绑定在布局中添加 = 号 （ android:text="@={vm.msg2}"）
 
     init {
         model = MainActivityModel()

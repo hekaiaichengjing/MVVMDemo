@@ -1,5 +1,6 @@
 package com.xinruan.mvvmdemo.ui.actitivty
 
+import android.content.Intent
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
@@ -12,6 +13,9 @@ import com.xinruan.mvvmdemo.BR
 import com.xinruan.mvvmdemo.DemoApplication
 import com.xinruan.mvvmdemo.R
 import com.xinruan.mvvmdemo.databinding.ActivityMainBinding
+import com.xinruan.mvvmdemo.process.MyProcessActivity
+import com.xinruan.mvvmdemo.ui.actitivty.download.DownLoadActivity
+import com.xinruan.mvvmdemo.ui.actitivty.list.ListActivity
 import com.xinruan.mvvmloadsirbase.activity.BaseLoadSirActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -30,6 +34,7 @@ class MainActivity : BaseLoadSirActivity<ActivityMainBinding, MainActivityViewMo
     }
 
     private var startTime: Long = 0
+
 
     override fun doOnCreate() {
         viewModel.getData()
@@ -55,6 +60,7 @@ class MainActivity : BaseLoadSirActivity<ActivityMainBinding, MainActivityViewMo
         //设置点击响应事件
         dataBinding.click = ClickProxy(this)
     }
+
 
     //先后顺序
     private suspend fun test() {
@@ -82,10 +88,25 @@ class MainActivity : BaseLoadSirActivity<ActivityMainBinding, MainActivityViewMo
         }
 
         fun test() {
+            reference.get()?.let {
+                it.startActivity(Intent(it, MyProcessActivity::class.java))
+            }
             beforeClick {
 //                reference.get()?.showLoading()
                 reference.get()?.showEmpty()
                 Toast.makeText(DemoApplication.APP, "登陆成功开始自己的业务", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        fun toDownLoad() {
+            reference.get()?.let {
+                it.startActivity(Intent(it, DownLoadActivity::class.java))
+            }
+        }
+
+        fun toList() {
+            reference.get()?.let {
+                it.startActivity(Intent(it, ListActivity::class.java))
             }
         }
 
@@ -105,5 +126,30 @@ class MainActivity : BaseLoadSirActivity<ActivityMainBinding, MainActivityViewMo
         dataBinding.et.postDelayed({
             showError()
         }, 5000)
+    }
+
+    override fun doAfterOnCreate() {
+        viewModel.getData()
+        dataBinding.et.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                println("=============> ${viewModel.msg2.get()}")
+                if (TextUtils.equals(s, "1")) {
+                    throw NullPointerException("我是故意的")
+                }
+            }
+
+        })
+        startTime = System.currentTimeMillis()
+//        viewModel.viewModelScope.launch {
+//            test()
+//        }
+        //设置点击响应事件
+        dataBinding.click = ClickProxy(this)
     }
 }
