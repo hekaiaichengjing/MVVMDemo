@@ -16,6 +16,7 @@ import com.xinruan.mvvmdemo.databinding.ActivityMainBinding
 import com.xinruan.mvvmdemo.process.MyProcessActivity
 import com.xinruan.mvvmdemo.ui.actitivty.download.DownLoadActivity
 import com.xinruan.mvvmdemo.ui.actitivty.list.ListActivity
+import com.xinruan.mvvmdemo.ui.actitivty.scroll.ScrollActivity
 import com.xinruan.mvvmloadsirbase.activity.BaseLoadSirActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -107,6 +108,12 @@ class MainActivity : BaseLoadSirActivity<ActivityMainBinding, MainActivityViewMo
         fun toList() {
             reference.get()?.let {
                 it.startActivity(Intent(it, ListActivity::class.java))
+            }
+        }
+
+        fun toScroll() {
+            reference.get()?.let {
+                it.startActivity(Intent(it, ScrollActivity::class.java))
             }
         }
 

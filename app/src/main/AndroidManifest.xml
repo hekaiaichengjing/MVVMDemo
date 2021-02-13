@@ -29,6 +29,7 @@
             android:taskAffinity="com.xinruan.hekai" />
         <activity android:name=".ui.actitivty.download.DownLoadActivity" />
         <activity android:name=".ui.actitivty.list.ListActivity" />
+        <activity android:name=".ui.actitivty.scroll.ScrollActivity" />
 
     </application>
 
