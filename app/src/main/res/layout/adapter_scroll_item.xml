@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.xinruan.mvvmdemo.view.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/design_default_color_primary">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="岁末年终，人们有了闲暇与积蓄，对于平时难得有精力操办大事的人来说，这是一个好时机。因此，人们根据现实生活需要，发明了这一特殊的时间民俗。在传统社会里，民众生活秩序和民俗是互相依赖的。 [1]
+中国民谚称：“腊月二十五，推磨做豆腐。”腊尽春回，人们度过了漫长的冬天，即将进入到新的一年。按照中国民间的习俗，春节是“一元复始”的标志，人们对于过年都倍感亲切，同时也形成了很多不同的地方年俗特点；还有“二十五糊窗户”的说法，即腊月二十四扫完尘，二十五就该糊窗户了。随着社会发展多数人家已失去糊窗户的传统，但贴窗花、贴福字、挂对联是必不可少的程序。 [1-2]
+风俗传统编辑
+随着春节的临近人们开始作购置年货等春节前的准备；这天因各地民族和风俗传统不同，所以各自的庆祝活动和饮食习惯也不尽相同，像中国民间接玉皇、照田蚕、千灯节、赶乱岁等传统活动。 [1]
+接玉皇
+《玉皇大帝版画》图2
+《玉皇大帝版画》图2
+旧俗认为腊月二十三灶王爷上天后，玉皇大帝于腊月二十五日亲自下界，查察人间善恶，并定来年祸福，所以家家移动图片祭之以祈福，称为“接玉皇”。人们在这一天里起居、言语都要谨慎，争取好表现，以博取玉皇欢心，降福来年。 "
+                android:textColor="@color/black"
+                android:textSize="32dp"></TextView>
+
+        </LinearLayout>
+    </com.xinruan.mvvmdemo.view.MyScrollView>
+</layout>

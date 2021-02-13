@@ -68,5 +68,13 @@
             android:onClick="@{()->click.toList()}"
             android:text="列表使用样例"
             app:layout_constraintTop_toBottomOf="@id/bt2" />
+
+        <Button
+            android:id="@+id/bt4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{()->click.toScroll()}"
+            android:text="滑动冲突"
+            app:layout_constraintTop_toBottomOf="@id/bt3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
